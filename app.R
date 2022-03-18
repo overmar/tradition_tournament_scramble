@@ -1,3 +1,5 @@
+# Adapted from https://github.com/glickmac/Fantasy_Draft_Order
+
 library(shiny)
 library(truncnorm)
 library(dplyr)
@@ -12,7 +14,7 @@ ui <- fluidPage(
   
   sidebarLayout(position = "left",
                 sidebarPanel(
-                  numericInput("year", h3("Enter Year"), value = 2018),
+                  numericInput("year", h3("Enter Year"), value = 2022),
                   numericInput("slots",h3("Available Places"),value = 40),
                   
                   actionButton("goButton", "Go!")
