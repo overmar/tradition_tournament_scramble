@@ -45,7 +45,7 @@ server <- function(input, output, session) {
     
     blarg_a <- blarg_a_func()
     
-    blarg2 <- map(blarg_a, ~ {
+    blarg2 <- purrr::map(blarg_a, ~ {
       rep(.x$names, .x$weight)
     }) %>% unname() %>% unlist()
     
@@ -56,7 +56,9 @@ server <- function(input, output, session) {
     
     pick_selection_order <- unique(blarg3)
     
-    data.frame(Name = pick_selection_order[1:isolate(input$slots)]) %>% 
+    data.frame(
+      Name = pick_selection_order[1:isolate(input$slots)]) %>% 
+      arrange(Name) %>% 
       mutate(row_n = row_number())
     
     })
